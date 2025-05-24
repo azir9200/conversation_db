@@ -89,20 +89,3 @@ SELECT  sighting_id, CASE
 -- Problem 9
 DELETE FROM rangers WHERE ranger_id NOT in (SELECT DISTINCT ranger_id FROM sightings );
 
-SELECT * FROM rangers;
-SELECT * FROM sightings;
-SELECT * FROM species;
-
-
-
-
-
-
-
--- Problem 8
-SELECT sighting_id CASE
-    WHERE EXTRACT(HOUR FROM sighting_time) < 12 THEN 'Morning'
-    WHERE EXTRACT(HOUR FROM sighting_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-    ELSE 'Evening'
-  END AS time_of_day
-FROM sightings;
